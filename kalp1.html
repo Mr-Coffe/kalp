@@ -15,7 +15,7 @@
             background-color: black;
         }
         canvas {
-            border: 1px solid transparent; /* Border'ı kaldır, artık gerekli değil. */
+             border: 1px solid transparent; /* Canvas kenarlığını kaldır */
         }
     </style>
 </head>
@@ -35,18 +35,21 @@
         }
 
         ctx.strokeStyle = 'red';
-        ctx.lineWidth = 1.5; // Kalınlığı azalt
+        ctx.lineWidth = 1.5; // Çizgi kalınlığını biraz azalt
 
-        for (let i = 0; i < 2500; i++) {
-          ctx.beginPath(); // Her döngüde yeni bir yol başla
-          const x = xt(i) * 20 + canvas.width / 2;
-          const y = yt(i) * 20 + canvas.height / 2;
+       for (let i = 0; i < 2500; i++) {
 
-          ctx.moveTo(canvas.width/2, canvas.height/2)  // Başlangıç noktasına git
+            const x = xt(i) * 20 + canvas.width / 2;
+            const y = yt(i) * 20 + canvas.height / 2;
 
-          ctx.lineTo(x, y); // Hedef noktasına çiz
-          ctx.stroke(); // Çizgiyi çiz
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2, canvas.height/2); // Başlangıç noktası
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+
         }
+
 
     </script>
 </body>
